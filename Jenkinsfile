@@ -43,15 +43,17 @@ pipeline {
         }
 
 		stage('SonarQube analysis') {
+			
 			steps {
 				script {
 					// requires SonarQube Scanner 2.8+
 					scannerHome = tool 'SonarQube Scanner 2.8'
 				}
 				withSonarQubeEnv('SonarQube Scanner') {
-					bat "${scannerHome}/bin/sonar-scanner"
+					bat "C:/Users/selu0005/Programmering/sonar-scanner-3.3.0.1492-windows/bin/sonar-scanner"
 				}
 			}
+	
 		}
     }
 }
