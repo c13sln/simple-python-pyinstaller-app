@@ -41,9 +41,7 @@ pipeline {
                 }
             }
         }
-		stage('SCM') {
-			git 'https://github.com/c13sln/simple-python-pyinstaller-app'
-		}
+		
 		stage('SonarQube analysis') {
 			// requires SonarQube Scanner 2.8+
 			def scannerHome = tool 'SonarQube Scanner 2.8';
