@@ -44,9 +44,12 @@ pipeline {
 
 		stage('SonarQube analysis') {
 			// requires SonarQube Scanner 2.8+
-			def scannerHome = 'C:/Users/selu0005/Programmering/sonar-scanner-3.3.0.1492-windows';
-			withSonarQubeEnv('SonarQube 7.7.0') {
-				bat "${scannerHome}/bin/sonar-scanner"
+			steps {
+				def scannerHome = 'C:/Users/selu0005/Programmering/sonar-scanner-3.3.0.1492-windows';			
+			
+				withSonarQubeEnv('SonarQube 7.7.0') {
+					bat "${scannerHome}/bin/sonar-scanner"
+				}
 			}
 		}
 	}
