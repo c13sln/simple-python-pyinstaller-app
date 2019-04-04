@@ -42,18 +42,17 @@ pipeline {
             }
         }
 
-		stage('SonarQube analysis') {
-			
-			steps {
-				script {
-					// requires SonarQube Scanner 2.8+
-					scannerHome = tool 'SonarQube Scanner 2.8'
-				}
-				withSonarQubeEnv('SonarQube Scanner') {
-					bat "C:/Users/selu0005/Programmering/sonar-scanner-3.3.0.1492-windows/bin/sonar-scanner"
+		node {
+			stage('SCM') {
+				git 'https://github.com/c13sln/simple-python-pyinstaller-app'
+			}
+			stage('SonarQube analysis') {
+				// requires SonarQube Scanner 2.8+
+				def scannerHome = tool 'SonarQube Scanner 2.8';
+				withSonarQubeEnv('My SonarQube Server') {
+					sh "${scannerHome}/bin/sonar-scanner"
 				}
 			}
-	
 		}
     }
 }
