@@ -41,15 +41,14 @@ pipeline {
                 }
             }
         }
-		stage('Sonar') {
+		stage('SCM') {
 			git 'https://github.com/c13sln/simple-python-pyinstaller-app'
-		  
-			stage('SonarQube analysis') {
-				// requires SonarQube Scanner 2.8+
-				def scannerHome = tool 'SonarQube Scanner 2.8';
-				withSonarQubeEnv('My SonarQube Server') {
-					sh "${scannerHome}/bin/sonar-scanner"
-				}
+		}
+		stage('SonarQube analysis') {
+			// requires SonarQube Scanner 2.8+
+			def scannerHome = tool 'SonarQube Scanner 2.8';
+			withSonarQubeEnv('My SonarQube Server') {
+				sh "${scannerHome}/bin/sonar-scanner"
 			}
 		}
 
