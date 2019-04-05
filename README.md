@@ -16,3 +16,8 @@ and execute at the command line on Linux machines without Python.
 
 The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
 you'll be creating yourself during the tutorial.
+
+## Kruxet 
+Att integrera jenkinsbygget med SonarQube är det som är kruxet.Kombination av följande två guider:
+[Jenkins](https://jenkins.io/doc/tutorials/build-a-python-app-with-pyinstaller/)
+[SonarPython och Jenkins](https://blog.mphomphego.co.za/blog/2018/09/14/How-I-configured-SonarQube-for-Python-code-analysis.html)
